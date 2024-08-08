@@ -1,0 +1,82 @@
+[
+    {
+        "rownum": 1,
+        "storeName": "北京南站",
+        "addressDetail": "北京南站候车大厅B岛201号",
+        "pro": "Wi-Fi,礼品卡",
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 2,
+        "storeName": "北京南站三",
+        "addressDetail": "北京南站地下一层南大门内东侧场地快速进站口3与快速进站口4中间",
+        "pro": "礼品卡",
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 3,
+        "storeName": "北京南站六",
+        "addressDetail": "北京南站二层旅客出发层西南角（23B检票口）旁",
+        "pro": "礼品卡",
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 4,
+        "storeName": "西站南广场二号",
+        "addressDetail": "北京西客站南站房东附楼一层105号铺位、104铺位和二层204铺位",
+        "pro": "Wi-Fi,点唱机",
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 5,
+        "storeName": "北京南站九",
+        "addressDetail": "丰台区北京南站高架层东南角",
+        "pro": null,
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 6,
+        "storeName": "北京南站十一",
+        "addressDetail": "北京南站到达层西侧第7出站口旁",
+        "pro": "24小时",
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 7,
+        "storeName": "北京肯德基有限公司南站十一 加盟",
+        "addressDetail": "北京南站到达层西侧第7出站口旁",
+        "pro": "高铁店",
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 8,
+        "storeName": "北京南站十",
+        "addressDetail": "北京南站高架层B岛北二层G2B01及一层",
+        "pro": "手机点餐",
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 9,
+        "storeName": "北京肯德基有限公司北京南站二加盟",
+        "addressDetail": "北京南站（北京南站候车大厅地下一层快速进站口1）",
+        "pro": "24小时",
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    },
+    {
+        "rownum": 10,
+        "storeName": "北京肯德基有限公司北京南站五加盟",
+        "addressDetail": "北京南站换乘层7号售票厅",
+        "pro": null,
+        "provinceName": "北京市",
+        "cityName": "北京市"
+    }
+]
