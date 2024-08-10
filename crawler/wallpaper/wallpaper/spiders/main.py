@@ -1,3 +1,4 @@
+from typing import Iterable
 import scrapy
 from scrapy.http import Response
 from wallpaper.items import WallpaperItem
@@ -8,8 +9,15 @@ class MainSpider(scrapy.Spider):
     
     domain = "https://haowallpaper.com"
     url_template = "https://haowallpaper.com/?page={}"
-    cur_page, max_page = 1, 2
+    cur_page, max_page = 1, 1
     start_urls = [url_template.format(cur_page)]
+
+    def start_requests(self):
+        cookies = {
+            "userData": r"%7B%22code%22%3A%221822187946820800513%22%2C%22userName%22%3A%22%E4%BB%87%E5%BF%A0%E9%AA%8F%22%2C%22userImg%22%3A%2215346357045202240%22%2C%22token%22%3A%22861AE98F94E2782BAAD70906CB17DEDC%22%7D",
+        }
+        # 携带相同cookiejar值的请求会共享cookie
+        yield scrapy.Request(self.url_template.format(self.cur_page), callback=self.parse, meta={"cookiejar": 1}, cookies=cookies)
 
     def show_args(self, response: Response):
         print("URL:", response.url)
@@ -41,7 +49,7 @@ class MainSpider(scrapy.Spider):
             print(e)
             print(traceback.format_exc())
 
-    def parse(self, response):
+    def parse(self, response: Response):
         # if self.cur_page == 1:
         #     self.show_args(response)
         print("Paring url: ", response.url)
@@ -53,11 +61,11 @@ class MainSpider(scrapy.Spider):
             print("number of images: ", len(img_list))
             for img in img_list:
                 img_path = self.domain + img.extract()
-                yield scrapy.Request(img_path, callback=self.img_parse)
+                yield scrapy.Request(img_path, callback=self.img_parse, meta={"cookiejar": response.meta["cookiejar"]})
 
             if self.cur_page < self.max_page:
                 self.cur_page += 1
-                yield scrapy.Request(self.url_template.format(self.cur_page), callback=self.parse)
+                yield scrapy.Request(self.url_template.format(self.cur_page), callback=self.parse, meta={"cookiejar": response.meta["cookiejar"]})
 
         except Exception as e:
             import traceback
