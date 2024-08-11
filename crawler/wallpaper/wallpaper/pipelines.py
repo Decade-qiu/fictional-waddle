@@ -17,7 +17,8 @@ class WallpaperPipeline:
         self.fp = open("wallpaper.txt", "w", encoding="utf-8")
 
     def process_item(self, item, spider):
-        self.fp.write(f"{item['name']} - {item['path']}\n")
+        if item['cid'] == 0:
+            self.fp.write(f"{item['name']}:{item['path']}\n")
         return item
     
     def close_spider(self, spider):
@@ -29,12 +30,19 @@ class ImgPipeline(ImagesPipeline):
     # def open_spider(self, spider):
     #     self.spiderinfo = self.SpiderInfo(spider)
     #     self.num = 0
+    category = {
+        0: "cover",
+        1: "raw"
+    }
     
     def get_media_requests(self, item, info):
         yield scrapy.Request(item['path'])
 
     def file_path(self, request, response=None, info=None, *, item=None):
-        return f"{item['name']}.jpg"
+        cid = item['cid']
+        path = f"{self.category[cid]}/{item['name']}.jpg"
+        print(path)
+        return path
     
     def item_completed(self, results, item, info):
         return item

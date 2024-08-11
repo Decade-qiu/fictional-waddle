@@ -10,3 +10,4 @@ class WallpaperItem(scrapy.Item):
     # define the fields for your item here like:
     path = scrapy.Field()
     name = scrapy.Field()
+    cid = scrapy.Field()
